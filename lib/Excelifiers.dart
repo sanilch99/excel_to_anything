@@ -65,8 +65,6 @@ class Excelifiers{
         }
         //collecting row data
         else {
-          print("here");
-          Map<String, dynamic> temp = Map<String, dynamic>();
           int j = 0;
           String newInsert="INSERT INTO $tableName (${keys.toString().substring(1,keys.toString().length-1)}) VALUES (";
           String createQuery="CREATE TABLE $tableName (";

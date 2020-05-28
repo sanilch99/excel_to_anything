@@ -1,2 +1,2 @@
-bool tableAlreadyCreated=false;
-String prevPath="";
+bool tableAlreadyCreated = false;
+String prevPath = "";
