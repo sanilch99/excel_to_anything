@@ -8,9 +8,9 @@ A package that allows you to transform your excel to the following format:
 
 
 At current the package allows you to use the following two functions (note: currently xlsx file type gives perfect results):<br />
-#1.excelToJson()<br />
+# 1.excelToJson()<br />
     - automatically lets you pick an excel file and returns a string containing the entire converted json<br /><br />
-#2.excelToSql({@required tableName,Database db,dbExist=true,tableExist=false,dbName})<br />
+# 2.excelToSql({@required tableName,Database db,dbExist=true,tableExist=false,dbName})<br />
     - lets you choose an excel file<br />
     - also creates a db for you if dbExist is set to false,note that here dbName has to be given<br />
     - create a table for you using the given header and automatically interprets the required data-type based on the rows of the data<br />
