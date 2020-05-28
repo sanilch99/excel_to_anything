@@ -11,7 +11,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   Database db;
 
   @override
@@ -28,7 +27,7 @@ class _HomeState extends State<Home> {
                 child: RaisedButton(
                   child: Text("PRESS TO UPLOAD EXCEL AND CONVERT TO JSON"),
                   onPressed: () {
-                    Excelifiers().excelToJson().then((onValue){
+                    Excelifiers().excelToJson().then((onValue) {
                       print(onValue);
                     });
                   },
@@ -37,16 +36,21 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: EdgeInsets.all(16),
                 child: RaisedButton(
-                  child: Text("PRESS TO UPLOAD EXCEL AND UPLOAD TO YOUR SQLITE DATABASE"),
+                  child: Text(
+                      "PRESS TO UPLOAD EXCEL AND UPLOAD TO YOUR SQLITE DATABASE"),
                   onPressed: () async {
-                    Excelifiers().excelToSql(db: db,tableName: "sss",dbExist: true,tableExist: false);
+                    Excelifiers().excelToSql(
+                        db: db,
+                        tableName: "sss",
+                        dbExist: true,
+                        tableExist: false);
                   },
                 ),
               ),
               RaisedButton(
                 child: Text("GET ALL VALUES"),
-                onPressed: ()async {
-                  var res=await db.rawQuery("SELECT * FROM sss");
+                onPressed: () async {
+                  var res = await db.rawQuery("SELECT * FROM sss");
                   print(res.toString());
                 },
               )
@@ -64,9 +68,7 @@ class _HomeState extends State<Home> {
 
   void createDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = documentsDirectory.path+'my_db.db';
+    String path = documentsDirectory.path + 'my_db.db';
     db = await openDatabase('my_db.db');
   }
-
-
 }
