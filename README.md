@@ -7,16 +7,16 @@ A package that allows you to transform your excel to the following format:
 ## Getting Started
 
 
-At current the package allows you to use the following two functions (note: currently xlsx file type gives perfect results):&nbsp
-1.excelToJson()&nbsp
-    \t- automatically lets you pick an excel file and returns a string containing the entire converted json&nbsp&nbsp
+At current the package allows you to use the following two functions (note: currently xlsx file type gives perfect results):<br />
+1.excelToJson()<br />
+    \t- automatically lets you pick an excel file and returns a string containing the entire converted json<br /><br />
 2.excelToSql({@required tableName,Database db,dbExist=true,tableExist=false,dbName})
     \t- lets you choose an excel file
     \t- also creates a db for you if dbExist is set to false,note that here dbName has to be given
     \t- create a table for you using the given header and automatically interprets the required data-type based on the rows of the data
     \t- parameters: tableName is required
     \t- note the primary key is set as the first column by default
-&nbsp
+<br />
 For implementation have a look at the attached example file in the github repository.       
 
 # Installing
@@ -54,12 +54,12 @@ Now in your `Dart` code, you can use:
 ````
 
 
-Currently Working On:-&nbsp
-    1. Allowing update queries to already uploaded excel files&nbsp
-    2. Converting given excel to pdf&nbsp
-    3. incorporating more file types such as csv.&nbsp
-    4. Allowing more data types currently supports TEXT,REAL,NULL AND INTEGER&nbsp
-&nbsp
+Currently Working On:-<br />
+    1. Allowing update queries to already uploaded excel files<br />
+    2. Converting given excel to pdf<br />
+    3. incorporating more file types such as csv.<br />
+    4. Allowing more data types currently supports TEXT,REAL,NULL AND INTEGER<br />
+<br />
 This package depends on several other packages such as [Excel](https://www.pub.dev/packages/excel),[Path Provider](https://pub.dev/packages/path_provider),
 [SQFLITE](https://pub.dev/packages/sqflite),[File Picker](https://pub.dev/packages/file_picker). A great thanks to these packages as well for an improved implementation
 
