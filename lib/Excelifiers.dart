@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:excel/excel.dart';
 import 'package:exceltoanything/globals.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -38,7 +39,7 @@ class Excelifiers{
     String fullJson = json.toString().substring(1, json.toString().length - 1);
     return fullJson;
   }
-  void excelToSql(tableName,{Database db,dbExist=true,tableExist=false,dbName}) async{
+  void excelToSql({@required tableName,Database db,dbExist=true,tableExist=false,dbName}) async{
 
     if(dbExist==false){
       Directory documentsDirectory = await getApplicationDocumentsDirectory();
@@ -70,7 +71,7 @@ class Excelifiers{
           String newInsert="INSERT INTO $tableName (${keys.toString().substring(1,keys.toString().length-1)}) VALUES (";
           String createQuery="CREATE TABLE $tableName (";
           for (var key in keys) {
-            newInsert+=(row[j].runtimeType==String)?((row[j].toString().length>10)?"\u0022" + row[j].toString().substring(0,4) + "\u0022,":"\u0022" + row[j].toString() + "\u0022,"):""+row[j].toString()+",";
+            newInsert+=(row[j].runtimeType==String)?"\u0022" + row[j].toString() + "\u0022,":""+row[j].toString()+",";
 
             //creating table based on data from row1
             if(i==1 ){
