@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:excel/excel.dart';
-import 'package:exceltoanything/globals.dart';
+import 'package:excel_to_anything/globals.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
@@ -12,7 +12,7 @@ class Excelifiers {
     var file = await FilePicker.getFilePath(
         type: FileType.custom, allowedExtensions: ['xlsx', 'csv', 'xls']);
     var bytes = File(file).readAsBytesSync();
-    var excel = Excel.decodeBytes(bytes, update: true);
+    var excel = Excel.decodeBytes(bytes);
     int i = 0;
     List<dynamic> keys = new List<dynamic>();
     List<Map<String, dynamic>> json = new List<Map<String, dynamic>>();
@@ -58,7 +58,7 @@ class Excelifiers {
     var file = await FilePicker.getFilePath(
         type: FileType.custom, allowedExtensions: ['xlsx', 'csv', 'xls']);
     var bytes = File(file).readAsBytesSync();
-    var excel = Excel.decodeBytes(bytes, update: true);
+    var excel = Excel.decodeBytes(bytes);
     int i = 0;
     List<dynamic> keys = new List<dynamic>();
     for (var table in excel.tables.keys) {

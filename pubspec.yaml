@@ -1,4 +1,4 @@
-name: exceltoanything
+name: excel_to_anything
 description: A package that allows you to transform your excel to the following format 1. Excel To JSON 2. Excel to SQLite
 version: 0.1.1
 homepage: https://github.com/sanilch99/excel_to_anything
