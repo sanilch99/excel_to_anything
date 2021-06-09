@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:excel/excel.dart';
@@ -17,28 +18,30 @@ class Excelifiers {
       List<Map<String, dynamic>> json = <Map<String, dynamic>>[];
       for (var table in excel.tables.keys) {
         for (var row in excel.tables[table]?.rows ?? []) {
-          if (i == 0) {
-            keys = row;
-            i++;
-          } else {
-            Map<String, dynamic> temp = Map<String, dynamic>();
-            int j = 0;
-            String tk = '';
-            for (var key in keys) {
-              tk = "\u201C" + key + "\u201D";
-              temp[tk] = (row[j].runtimeType == String)
-                  ? "\u201C" + row[j].toString() + "\u201D"
-                  : row[j];
-              j++;
+          try {
+            if (i == 0) {
+              keys = row;
+              i++;
+            } else {
+              Map<String, dynamic> temp = Map<String, dynamic>();
+              int j = 0;
+              String tk = '';
+              for (var key in keys) {
+                tk = key.value;
+                temp[tk] = (row[j].runtimeType == String)
+                    ? "\u201C" + row[j].value + "\u201D"
+                    : row[j].value;
+                j++;
+              }
+              json.add(temp);
             }
-            json.add(temp);
+          } catch (ex){
+            print(ex);
           }
         }
       }
       print(json.length);
-      String fullJson = json.toString().substring(1, json
-          .toString()
-          .length - 1);
+      String fullJson = jsonEncode(json);
       return fullJson;
     }
     return null;
