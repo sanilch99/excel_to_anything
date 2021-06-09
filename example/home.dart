@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text("PRESS TO UPLOAD EXCEL AND CONVERT TO JSON"),
                   onPressed: () {
                     Excelifiers().excelToJson().then((onValue) {
@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
               ),
               Padding(
                 padding: EdgeInsets.all(16),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text(
                       "PRESS TO UPLOAD EXCEL AND UPLOAD TO YOUR SQLITE DATABASE"),
                   onPressed: () async {
@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
                   },
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("GET ALL VALUES"),
                 onPressed: () async {
                   var res = await db.rawQuery("SELECT * FROM sss");
@@ -64,11 +64,12 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     createDB();
+    super.initState();
   }
 
   void createDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = documentsDirectory.path + 'my_db.db';
-    db = await openDatabase('my_db.db');
+    db = await openDatabase(path);
   }
 }

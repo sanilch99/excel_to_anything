@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:excel/excel.dart';
 import 'package:excel_to_anything/globals.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -96,8 +95,6 @@ class Excelifiers {
                     createQuery += "$key INTEGER NOT NULL,";
                   } else if (row[j].runtimeType == double) {
                     createQuery += "$key REAL NOT NULL,";
-                  } else if (row[j].runtimeType == null) {
-                    createQuery += "$key TEXT,";
                   } else {
                     createQuery += "$key TEXT,";
                   }
@@ -108,8 +105,6 @@ class Excelifiers {
                     createQuery += "$key INTEGER NOT NULL,";
                   } else if (row[j].runtimeType == double) {
                     createQuery += "$key REAL NOT NULL,";
-                  } else if (row[j].runtimeType == null) {
-                    createQuery += "$key TEXT,";
                   } else {
                     createQuery += "$key TEXT,";
                   }
