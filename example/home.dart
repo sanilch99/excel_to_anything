@@ -11,7 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Database db;
+  late Database db;
 
   @override
   Widget build(BuildContext context) {
